@@ -1,30 +1,27 @@
 (ns lead-indicators.core
-  (:require [incanter.core :as incanter]
-            [incanter.stats :as stats]
+  (:require [clojure.edn :as edn]
+            [clojure.java.io :as io]
+            [incanter.core :as incanter]
             [incanter.charts :as charts]
-            [incanter.optimize :as optimize]
             [clj-time.format :as time-format]))
 
 (defn parse-date [date-str]
   (time-format/parse (time-format/formatter "yyyyMMdd") date-str))
 
-(def raw-data [["20170531" 3] ["20170530" 1] ["20170529" 4]])
-
-(def clean-data (map #(vector (.getMillis (parse-date (first %))) (second %)) raw-data))
-
-(prn clean-data)
-
-(def time-series (incanter/dataset [:date :hours] clean-data))
-
-(def dataset
-  (incanter/dataset [:date :hours] [[7 3][8 2][9 3]]))
-
-(def chart
+(defn chart [time-series]
   (charts/time-series-plot
     :date    :hours                             ;; must specify x & y column names of dataset
     :x-label "Date"
     :y-label "Hours working with Clojure"
     :title   "Clojure learning - lead indicator"
     :data    time-series))
+
+(defn -main []
+  (let [timeseries-file (io/file (io/resource "example"))
+        raw-data (edn/read-string (slurp timeseries-file))
+        clean-data (map #(vector (.getMillis (parse-date (first %))) (second %)) raw-data)
+        time-series (incanter/dataset [:date :hours] clean-data)
+        lead-indicator-chart (chart time-series)]
+    (incanter/view lead-indicator-chart)))
 
 

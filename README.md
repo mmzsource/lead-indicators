@@ -1,10 +1,10 @@
 # lead-indicators
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to visualise time-series in an incanter plot
 
 ## Usage
 
-FIXME
+`lein run`
 
 ## License
 
