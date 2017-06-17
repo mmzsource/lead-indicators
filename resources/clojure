@@ -1,4 +1,6 @@
-[["20170616" 1.5 "datomic via the repl!"]
+[["20170618" 3.5 "League schema + entities in datomic"]
+ ["20170617" 1   "datomic recap so far"]
+ ["20170616" 1.5 "datomic via the repl!"]
  ["20170615" 0.5 "datomic"]
  ["20170614" 2   "datalog"]
  ["20170613" 2   "datalog"]
