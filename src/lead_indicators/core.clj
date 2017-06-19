@@ -7,8 +7,9 @@
             [clj-time.format :as time-format]))
 
 
-(defn load-file [filename]
-  (io/file (io/resource filename)))
+(defn load-file [cmdline-args] 
+  (let [filename (or (first cmdline-args) "clojure")]
+    (io/file (io/resource filename))))
 
 
 (defn load-raw-data [timeseries-file]
@@ -58,8 +59,8 @@
     :data    time-series))
 
 
-(defn -main []
-  (let [timeseries-file      (load-file "clojure")
+(defn -main [& args]
+  (let [timeseries-file      (load-file args)
         raw-data             (load-raw-data timeseries-file)
         raw-dataset          (incanter/dataset [:date :value] raw-data)
         clean-dataset        (transform-date-string-col raw-dataset)
