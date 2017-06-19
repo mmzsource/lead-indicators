@@ -1,4 +1,4 @@
-[["20170619" 2   "clojure + datomic"]
+[["20170619" 6   "clojure + datomic + data literal frustration!"]
  ["20170618" 6   "League & Team schema + fact in datomic"]
  ["20170617" 1   "datomic recap so far"]
  ["20170616" 1.5 "datomic via the repl!"]
