@@ -1,4 +1,4 @@
-[["20170625" 4 "more bezier fun"]
+[["20170625" 4   "more bezier fun"]
  ["20170624" 3   "bezier curves in clojure"]
  ["20170621" 1   "sorting with composite keys"]
  ["20170620" 1   "read datomic documentation"]
