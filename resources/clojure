@@ -1,4 +1,5 @@
-[["20170918" 2   "emacs & datomic"]
+[["20170921" 1   "clojure standard lib"]
+ ["20170918" 2   "emacs & datomic"]
  ["20170917" 1   "emacs"]
  ["20170916" 1   "emacs"]
  ["20170914" 2   "emacs with paredit & magit. First add commit & push from emacs"]
